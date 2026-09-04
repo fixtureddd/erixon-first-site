@@ -1,155 +1,588 @@
 <!DOCTYPE html>
-<!--
-  ================================================================
-  READ THIS BEFORE YOU PASTE ANYTHING
-
-  When Gemini gives you a page, you do NOT paste it into a part of
-  this file. You replace the entire file.
-
-  Click into the editor, press Ctrl+A (Cmd+A on Mac), press Delete,
-  then paste. Everything here is meant to be thrown away.
-
-  Do that only AFTER your live link works. Get the link first.
-  ================================================================
--->
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>My first site</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Unbounded:wght@600;800&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #0d1d30;
-    --card: #142a44;
-    --line: #27466a;
-    --aqua: #6de1d7;
-    --text: #ffffff;
-    --muted: #94a9bf;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--navy);
-    color: var(--text);
-    font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
-    line-height: 1.6;
-    display: flex;
-    justify-content: center;
-    padding: 6vh 20px;
-  }
-  main { width: 100%; max-width: 640px; }
-  .badge {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--aqua);
-    margin-bottom: 18px;
-  }
-  h1 {
-    font-family: "Unbounded", "Manrope", sans-serif;
-    font-weight: 800;
-    font-size: clamp(38px, 9vw, 68px);
-    letter-spacing: -0.05em;
-    line-height: 1.02;
-    margin: 0 0 8px;
-  }
-  .name {
-    font-family: "Unbounded", "Manrope", sans-serif;
-    font-weight: 600;
-    font-size: clamp(18px, 4vw, 24px);
-    letter-spacing: -0.04em;
-    color: var(--aqua);
-    margin: 0 0 24px;
-  }
-  p.lead { font-size: 18px; color: var(--muted); margin: 0 0 34px; }
-  .card {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 26px 28px;
-    margin-bottom: 18px;
-  }
-  .card h2 {
-    font-family: "Unbounded", "Manrope", sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    letter-spacing: -0.03em;
-    text-transform: uppercase;
-    color: var(--aqua);
-    margin: 0 0 16px;
-  }
-  ol { margin: 0; padding-left: 20px; }
-  li { margin-bottom: 12px; color: var(--muted); }
-  li:last-child { margin-bottom: 0; }
-  li b { color: var(--text); font-weight: 700; }
-  code {
-    font-family: ui-monospace, "SF Mono", Consolas, monospace;
-    font-size: 0.92em;
-    background: #0a1727;
-    border: 1px solid var(--line);
-    border-radius: 5px;
-    padding: 1px 6px;
-    color: var(--aqua);
-  }
-  a { color: var(--aqua); }
-  footer {
-    margin-top: 30px;
-    font-size: 14px;
-    color: #6e839a;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Football Club | Official Site</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pitch-green: #0b532c;
+            --pitch-dark: #073b1e;
+            --accent-gold: #ffb703;
+            --stadium-dark: #080c0a;
+            --card-bg: #121a15;
+            --text-light: #f8f9fa;
+            --text-muted: #94a3b8;
+            --white: #ffffff;
+            --field-line: rgba(255, 255, 255, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: var(--stadium-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-heading {
+            font-family: 'Teko', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(8, 12, 10, 0.95);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 2px solid var(--pitch-green);
+            backdrop-filter: blur(8px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 2rem;
+        }
+
+        .nav-logo {
+            font-size: 2.2rem;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Teko', sans-serif;
+            font-weight: 700;
+        }
+
+        .nav-logo span {
+            color: var(--accent-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Hero Section with Soccer Pitch Lines */
+        .hero {
+            min-height: 85vh;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(19, 117, 71, 0.4), transparent 70%),
+                linear-gradient(135deg, rgba(8, 12, 10, 0.9), rgba(7, 59, 30, 0.95)),
+                repeating-linear-gradient(0deg, #0b532c 0, #0b532c 40px, #0e6134 40px, #0e6134 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            border: 2px solid var(--field-line);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 183, 3, 0.15);
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 5.5rem;
+            line-height: 0.85;
+            margin-bottom: 1rem;
+            color: var(--white);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-gold);
+            color: var(--stadium-dark);
+            padding: 0.8rem 2.5rem;
+            font-family: 'Teko', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 183, 3, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #e0a000;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 183, 3, 0.4);
+        }
+
+        /* Container Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 2.5rem;
+            border-left: 6px solid var(--accent-gold);
+            padding-left: 1rem;
+            line-height: 0.85;
+        }
+
+        /* Match Section */
+        .match-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 5rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .match-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--pitch-green), var(--accent-gold), var(--pitch-green));
+        }
+
+        .match-details {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .match-league {
+            color: var(--accent-gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.9rem;
+        }
+
+        .match-time {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .scoreboard {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        .team {
+            flex: 1;
+        }
+
+        .team-name {
+            font-family: 'Teko', sans-serif;
+            font-size: 3rem;
+            line-height: 1;
+            margin-top: 0.5rem;
+        }
+
+        .team-type {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .vs-badge {
+            font-family: 'Teko', sans-serif;
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            background: rgba(255, 255, 255, 0.03);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Roster Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .player-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .player-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255, 183, 3, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .player-number {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            font-family: 'Teko', sans-serif;
+            font-size: 5rem;
+            color: rgba(255, 255, 255, 0.05);
+            font-weight: 700;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .player-position {
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .player-name {
+            font-size: 2.2rem;
+            line-height: 1;
+            margin: 0.2rem 0 1rem;
+        }
+
+        .player-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .player-stats span {
+            display: block;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* League Table / Stats */
+        .table-container {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            overflow-x: auto;
+        }
+
+        .league-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .league-table th {
+            font-family: 'Teko', sans-serif;
+            font-size: 1.4rem;
+            color: var(--accent-gold);
+            padding: 1rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .league-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
+        }
+
+        .league-table tr.highlight {
+            background-color: rgba(19, 117, 71, 0.2);
+            font-weight: 600;
+        }
+
+        .league-table tr.highlight td:first-child {
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #040605;
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 4rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3.8rem;
+            }
+
+            .scoreboard {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .vs-badge {
+                margin: 0.5rem 0;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<main>
 
-  <span class="badge">Cal Poly Vibe Coding &middot; Session 01</span>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">⚽ APEX <span>FC</span></a>
+            <ul class="nav-links">
+                <li><a href="#match">Next Match</a></li>
+                <li><a href="#roster">Squad</a></li>
+                <li><a href="#standings">Standings</a></li>
+            </ul>
+        </div>
+    </header>
 
-  <h1>It&rsquo;s live.</h1>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">2026/27 Season Active</span>
+            <h1>PASSION. POWER. GLORY.</h1>
+            <p>Welcome to the official home of Apex Football Club. Experience the thrill of top-flight football.</p>
+            <a href="#match" class="btn">VIEW NEXT MATCH</a>
+        </div>
+    </section>
 
-  <!-- Step 5: change the name below to yours, then commit. -->
-  <p class="name">Built by Erixon Sacpun Goux</p>
+    <!-- Main Content Container -->
+    <main class="container">
+        
+        <!-- Next Match Section -->
+        <h2 id="match" class="section-title">Upcoming Fixture</h2>
+        <div class="match-card">
+            <div class="match-details">
+                <div class="match-league">Premier Division • Matchday 12</div>
+                <div class="match-time">Saturday, October 14, 2026 • 15:00 EST</div>
+            </div>
+            <div class="scoreboard">
+                <div class="team">
+                    <div class="team-name">APEX FC</div>
+                    <div class="team-type">Home</div>
+                </div>
+                <div class="vs-badge">VS</div>
+                <div class="team">
+                    <div class="team-name">RIVAL CITY</div>
+                    <div class="team-type">Away</div>
+                </div>
+            </div>
+        </div>
 
-  <p class="lead">
-    This page is on the internet. Anyone you send this link to can open it,
-    on any device, right now. You made that happen in about five minutes.
-  </p>
+        <!-- Player Roster Section -->
+        <h2 id="roster" class="section-title">Star Players</h2>
+        <div class="grid">
+            
+            <div class="player-card">
+                <div class="player-number">10</div>
+                <div class="player-position">Forward</div>
+                <h3 class="player-name">M. SILVA</h3>
+                <div class="player-stats">
+                    <div>Goals <span>14</span></div>
+                    <div>Assists <span>8</span></div>
+                </div>
+            </div>
 
-  <div class="card">
-    <h2>Three things, in this order</h2>
-    <ol>
-      <li><b>Put your name on it.</b> Edit <code>index.html</code>, change
-        YOUR NAME HERE above, commit, refresh this page.</li>
-      <li><b>Submit this link.</b> Go to
-        <a href="https://www.calpolyvibecoding.com/">calpolyvibecoding.com</a>,
-        make an account, and paste this URL in. That is how you get counted,
-        and how Claude seats get assigned.</li>
-      <li><b>Then build.</b> Open Gemini, get a page, and replace this entire
-        file with it.</li>
-    </ol>
-  </div>
+            <div class="player-card">
+                <div class="player-number">08</div>
+                <div class="player-position">Midfielder</div>
+                <h3 class="player-name">K. DE JONG</h3>
+                <div class="player-stats">
+                    <div>Pass Acc. <span>91%</span></div>
+                    <div>Assists <span>12</span></div>
+                </div>
+            </div>
 
-  <div class="card">
-    <h2>How to replace this page</h2>
-    <ol>
-      <li>Copy what Gemini gives you with the <b>copy button</b> on the code
-        block. Do not click and drag.</li>
-      <li>Open <code>index.html</code> here and click the pencil icon.</li>
-      <li><b>Ctrl+A</b> (<b>Cmd+A</b> on Mac), then <b>Delete</b>. All of it.
-        Yes, really.</li>
-      <li>Paste, commit, refresh.</li>
-    </ol>
-  </div>
+            <div class="player-card">
+                <div class="player-number">04</div>
+                <div class="player-position">Defender</div>
+                <h3 class="player-name">V. O'CONNOR</h3>
+                <div class="player-stats">
+                    <div>Tackles <span>42</span></div>
+                    <div>Clean Sheets <span>6</span></div>
+                </div>
+            </div>
 
-  <footer>
-    Nothing on this page is precious. It exists so the link has something to
-    show before you have something of your own.
-  </footer>
+            <div class="player-card">
+                <div class="player-number">01</div>
+                <div class="player-position">Goalkeeper</div>
+                <h3 class="player-name">A. RAMSAY</h3>
+                <div class="player-stats">
+                    <div>Saves <span>58</span></div>
+                    <div>Save % <span>78%</span></div>
+                </div>
+            </div>
 
-</main>
+        </div>
+
+        <!-- League Standings Section -->
+        <h2 id="standings" class="section-title">League Table</h2>
+        <div class="table-container">
+            <table class="league-table">
+                <thead>
+                    <tr>
+                        <th>Pos</th>
+                        <th>Club</th>
+                        <th>P</th>
+                        <th>W</th>
+                        <th>D</th>
+                        <th>L</th>
+                        <th>GD</th>
+                        <th>Pts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight">
+                        <td>1</td>
+                        <td>Apex FC</td>
+                        <td>11</td>
+                        <td>9</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>+18</td>
+                        <td>28</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Rival City</td>
+                        <td>11</td>
+                        <td>8</td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td>+14</td>
+                        <td>26</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>United Metro</td>
+                        <td>11</td>
+                        <td>7</td>
+                        <td>1</td>
+                        <td>3</td>
+                        <td>+8</td>
+                        <td>22</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Coastal Rovers</td>
+                        <td>11</td>
+                        <td>5</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>+2</td>
+                        <td>18</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Apex Football Club. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
